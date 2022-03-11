@@ -1,34 +1,36 @@
 import styled from "styled-components";
 import Link from "next/link";
+import Navigation from "./Navigation";
 
-export function GameFormular() {
+export function GameFormular({ nameOfGame, setNameOfGame, playerNames, setPlayerNames }) {
   return (
     <>
       <form labelText="Name of game">
         <Fieldset>
           <h1>Scorekeeper</h1>
-          <h2>Create a new game</h2>
+          <h2>Name of Game</h2>
           <label htmlFor="NameOfGame">Name of game</label>
-          <input id="NameOfGame"></input>
+          <input
+            required
+            id="NameOfGame"
+            onChange={(e) => {
+              setNameOfGame(e.target.value);
+            }}
+          ></input>
           <label htmlFor="playerNames">Player names, separated by comma</label>
-          <input id="playerNames"></input>
-          <Link href="/GamePage">
+          <input
+            required
+            id="playerNames"
+            onChange={(e) => {
+              setPlayerNames(e.target.value);
+            }}
+          ></input>
+          <Link href="/GamePage" passHref>
             <SubmitA>
               <button>Create game</button>
             </SubmitA>
           </Link>
-          <LinkContainer>
-            <Link href="/">
-              <a>
-                <button>Play</button>
-              </a>
-            </Link>
-            <Link href="/">
-              <a>
-                <button>History</button>
-              </a>
-            </Link>
-          </LinkContainer>
+          <Navigation />
         </Fieldset>
       </form>
     </>
@@ -43,15 +45,7 @@ export const Fieldset = styled.fieldset`
   gap: 0.4rem;
 `;
 
-const LinkContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  a > button {
-  }
-`;
-
-const SubmitA = styled.a`
+export const SubmitA = styled.a`
   display: flex;
   justify-content: center;
   text-decoration: none;
