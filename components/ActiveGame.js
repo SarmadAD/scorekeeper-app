@@ -2,21 +2,23 @@ import styled from "styled-components";
 import Link from "next/link";
 import { Fieldset } from "./GameFormular";
 
-export function ActiveGame() {
+export function ActiveGame({ nameOfGame, playerNames }) {
   return (
     <>
       <Fieldset>
         <h1>Scorekeeper</h1>
-        <h3>Game Name</h3>
+        <h3>{nameOfGame}</h3>
         <div>
-          <Section>
-            <p>Player 1 </p>
-            <div>
-              <button>-</button>
-              <span>0</span>
-              <button>+</button>
-            </div>
-          </Section>
+          {playerNames.split(",").map((player) => (
+            <Section key={player}>
+              <p>{player}</p>
+              <div>
+                <button>-</button>
+                <span>0</span>
+                <button>+</button>
+              </div>
+            </Section>
+          ))}
         </div>
         <FlexGamePageButtons>
           <Link href="/">
