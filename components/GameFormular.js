@@ -12,7 +12,11 @@ export function GameFormular() {
           <input id="NameOfGame"></input>
           <label htmlFor="playerNames">Player names, separated by comma</label>
           <input id="playerNames"></input>
-          <button>Create game</button>
+          <Link href="/GamePage">
+            <SubmitA>
+              <button>Create game</button>
+            </SubmitA>
+          </Link>
           <LinkContainer>
             <Link href="/">
               <a>
@@ -30,7 +34,7 @@ export function GameFormular() {
     </>
   );
 }
-const Fieldset = styled.fieldset`
+export const Fieldset = styled.fieldset`
   padding: 0.7rem;
   border: 1px solid gray;
   border-radius: 8px;
@@ -43,4 +47,16 @@ const LinkContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  a > button {
+  }
+`;
+
+const SubmitA = styled.a`
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  button {
+    width: 100%;
+    background-color: grey;
+  }
 `;
