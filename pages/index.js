@@ -1,3 +1,5 @@
+import { GameFormular } from "../components/GameFormular";
+
 export default function Home() {
-  return <div>Hello!</div>;
+  return <GameFormular/>
 }
